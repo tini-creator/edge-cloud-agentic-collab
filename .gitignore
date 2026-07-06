@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Python cache
+*.py[cod]
+.idea/
+
+# Ignore all model files
+models/
+
+# Ignore all json files
+*.json
+*.jsonl
