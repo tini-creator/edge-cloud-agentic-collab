@@ -32,19 +32,19 @@ An **escalation credit threshold** y_esc = 0.20 defines a scarcity zone (y_min, 
 
 ```
 edge-cloud-agentic-collab/
-├── generate_dataset.py       # Synthetic dataset generation from mobility traces
-├── run_sft.py                # Stage 1: Supervised fine-tuning (SFT)
-├── run_grpo.py               # Stage 2: GRPO reinforcement fine-tuning
-├── run_ppo.py                # PPO alternative (experimental)
-├── monitor_grpo.py           # Live training monitor
-├── plot_rewards.py           # Training curve plots (dashboard + paper-quality SVG)
-├── reward_model.py           # Standalone reward model (dataset generation)
+├── data/
+    └── generate_dataset.py       # Synthetic dataset generation from mobility traces
+├── models/                       # not committed
 ├── scripts/
-│   └── reward_model.py       # Reward model used during GRPO training
-├── evaluate.py               # Core evaluation harness and metric families
-├── evaluate_baselines.py     # Seven-policy baseline comparison + figure generation
-├── evaluate_robustness.py    # OOD and mobility robustness evaluation
-└── plot_robustness.py        # Robustness figure generation
+│   └── reward_model.py           # Reward model used during GRPO training
+    └── run_sft.py                # Stage 1: Supervised fine-tuning (SFT)
+    └── run_grpo.py               # Stage 2: GRPO reinforcement fine-tuning
+    └── evaluate.py               # Core evaluation harness and metric families
+    └── evaluate_baselines.py     # Seven-policy baseline comparison + figure generation
+    └── evaluate_robustness.py    # OOD and mobility robustness evaluation
+    └── plot_robustness.py        # Robustness figure generation
+    └── plot_rewards.py           # Training curve plots
+    └── monitor_grpo.py           # Live training monitor
 ```
 
 ---
