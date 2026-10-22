@@ -6,6 +6,8 @@
 
 ## Overview
 
+![System Model](data/system.png)
+
 Modern UE applications span a wide range of compute intensities — from background podcasts to AR/VR workloads — while operating under dynamic battery, network, and energy credit constraints. SLM-ACE frames the **joint offloading and escalation** problem as a constrained utility maximisation task and trains a sub-200M parameter language model to produce structured JSON decisions grounded in natural-language system context, without access to explicit state vectors.
 
 The reward function jointly optimises:
@@ -18,7 +20,7 @@ U(o, e | s)  =   R  +   V  −   C  −   P  −  Φ
 |------|------------------------------------------------------------------------------------|
 | `R(o, s)` | Offload utility: net compute saving from task offloading                           |
 | `V(e, s)` | Escalation value: expected gain from delegating to a network LLM                   |
-| `C(e, s)` | Credit penalty: cost of energy credit consumption                                  |
+| `C(e, s)` | Escalation cost: cost of one round trip escalation in terms of latency             |
 | `P(o, s)` | Constraint penalty: hard feasibility violations (C1: low battery; C8: weak signal) |
 | `Φ(o, γ)` | Credit-floor penalty: penalty for offloading below the floor y_min = 0.10          |
 
@@ -57,7 +59,7 @@ edge-cloud-agentic-collab/
 | **FVR** | Feasibility violation rate  | Fraction of decisions violating hard constraints |
 | **Credit/step** | Credit efficiency | Mean energy credit consumed per decision step |
 
-> **Note:** COR, VER, and credit/step are defined only over the feasible region. Policies that never produce feasible decisions (always-offload, always-escalate) report N/A for these metrics — this is correct behaviour, not a bug.
+> **Note:** COR, VER, and credit/step are defined only over the feasible region. Policies that never produce feasible decisions (always-offload, always-escalate) report N/A for these metrics.
 
 ---
 
