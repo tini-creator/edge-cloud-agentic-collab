@@ -16,13 +16,13 @@ The reward function jointly optimises:
 U(o, e | s)  =   R  +   V  −   C  −   P  −  Φ
 ```
 
-| Term | Meaning                                                                            |
-|------|------------------------------------------------------------------------------------|
+| Term      | Meaning                                                                            |
+|-----------|------------------------------------------------------------------------------------|
 | `R(o, s)` | Offload utility: net compute saving from task offloading                           |
 | `V(e, s)` | Escalation value: expected gain from delegating to a network LLM                   |
 | `C(e, s)` | Escalation cost: cost of one round trip escalation in terms of latency             |
 | `P(o, s)` | Constraint penalty: hard feasibility violations (C1: low battery; C8: weak signal) |
-| `Φ(o, γ)` | Credit-floor penalty: penalty for offloading below the floor y_min = 0.10          |
+| `Φ(o, y)` | Credit-floor penalty: penalty for offloading below the floor y_min = 0.10          |
 
 An **escalation credit threshold** y_esc = 0.20 defines a scarcity zone (y_min, y_esc] where escalation uncertainty is raised and escalation value is discounted, acting as a soft reward modulator instead of a hard constraint.
 
@@ -36,7 +36,7 @@ edge-cloud-agentic-collab/
     └── generate_dataset.py       # Synthetic dataset generation from mobility traces
 ├── models/                       # not committed
 ├── scripts/
-│   └── reward_model.py           # Reward model used during GRPO training
+    └── reward_model.py           # Reward model used during GRPO training
     └── run_sft.py                # Stage 1: Supervised fine-tuning (SFT)
     └── run_grpo.py               # Stage 2: GRPO reinforcement fine-tuning
     └── evaluate.py               # Core evaluation harness and metric families
