@@ -1,6 +1,6 @@
 # SLM-ACE: Agentic Compute Offloading and Escalation at the UE in 6G Networks
 
-**SLM-ACE** (Small Language Model for Agentic Compute and Escalation) is a lightweight framework for autonomous offloading and network-LLM escalation decisions in 6G networks. It fine-tunes [SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) using supervised instruction tuning (SFT) followed by Group Relative Policy Optimisation (GRPO) via HuggingFace TRL and PEFT (LoRA), running fully on CPU.
+edge-cloud-agentic-collab is an implementation of **SLM-ACE** (Small Language Model for Agentic Compute and Escalation), a lightweight framework for autonomous offloading and network-LLM escalation decisions in 6G networks. It fine-tunes [SmolLM2-135M](https://huggingface.co/HuggingFaceTB/SmolLM2-135M) using supervised instruction tuning (SFT) followed by Group Relative Policy Optimisation (GRPO) via HuggingFace TRL and PEFT (LoRA), running fully on CPU.
 
 ---
 
